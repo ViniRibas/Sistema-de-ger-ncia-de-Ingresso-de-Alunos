@@ -1,0 +1,146 @@
+/* Fundo com gradiente moderno */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(90deg, #E4362D, #6A2DAE, #134DCE);
+    background-size: 200% 200%;
+    animation: gradientMove 8s ease infinite;
+}
+
+/* Animação suave do gradiente */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Painel branco central */
+.cadastro-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Título */
+h2 {
+    color: #341A40;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Campos */
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid #d0d0d0;
+    outline: none;
+    background: #f2f2f2;
+    font-size: 15px;
+    color: #333;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Bordas gradientes arredondadas ao focar */
+input:focus {
+    background: #fff;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background-image:
+        linear-gradient(#fff, #fff),
+        linear-gradient(to right, #E4362D, #134DCE);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 0 6px rgba(19, 77, 206, 0.3);
+}
+
+/* Botões */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+/* Botão Cadastrar - gradiente roxo */
+.btn-cadastrar {
+    background: linear-gradient(90deg, #8744A6, #341A40);
+}
+
+/* Botão Voltar - gradiente azul */
+.btn-voltar {
+    background: linear-gradient(90deg, #134DCE, #092768);
+}
+
+
+
+/* Efeitos hover e active */
+button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: scale(0.97);
+    filter: brightness(0.8);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .cadastro-container {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

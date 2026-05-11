@@ -1,0 +1,181 @@
+:root {
+  --azul-prim:#134DCE;
+  --azul-esc:#092768;
+  --azul-brand:#0095DF;
+  --cinza-fundo:#f2f2f2;
+  --cinza-borda:#d0d0d0;
+  --verde-grad:linear-gradient(90deg, #7ED957, #2EB872);
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fff;
+  color: #111;
+  margin: 0;
+  padding: 30px;
+}
+
+#logs-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+h1 {
+  color: var(--azul-brand);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ======== BUSCA E FILTROS ======== */
+#busca-filtros {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+#campobusca {
+  flex: 1 1 420px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: #fff;
+  font-size: 15px;
+  color: #333;
+  transition: all .25s ease;
+  background-image:
+    linear-gradient(#fff,#fff),
+    linear-gradient(90deg,#1c85fe,#2d9dae,#0095DF);
+  background-origin: border-box;
+  background-clip: padding-box,border-box;
+  box-shadow: 0 0 6px rgba(19,77,206,.18);
+}
+
+#campobusca:focus {
+  outline: none;
+  box-shadow:
+    0 0 6px rgba(19, 77, 206, 0.25),
+    0 0 14px rgba(0, 149, 223, 0.25),
+    inset 0 0 4px rgba(19, 77, 206, 0.15);
+  transform: translateY(-1px);
+}
+
+#filtro {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  border: 1px solid var(--cinza-borda);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+
+#btn-buscar {
+  display: inline-flex;          /* garante proporção correta */
+  align-items: center;           /* centraliza verticalmente */
+  justify-content: center;
+  gap: 8px;                      /* espaçamento entre ícone e texto */
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: var(--verde-grad);
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  transition: all .25s ease;
+  width: auto;                   /* impede o botão de esticar */
+  height: auto;
+}
+
+#btn-buscar img {
+  width: 16px !important;                   /* tamanho ideal para ícone de lupa */
+  height: 16px !important;
+  object-fit: contain;
+  display: block;
+}
+
+#btn-buscar:hover {
+  transform: scale(1.03);
+}
+
+
+/* ======== TABELA ======== */
+.tabela-wrapper {
+  overflow-x: auto;
+}
+
+#tabela-logs {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e6ebf5;
+}
+
+#tabela-logs thead th {
+  background: var(--azul-brand);
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 14px;
+}
+
+#tabela-logs td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #edf2fb;
+}
+
+#tabela-logs tbody tr:nth-child(even) {
+  background: #f9fbff;
+}
+
+#tabela-logs tbody tr:hover {
+  background: #eef4ff;
+  transition: 0.2s;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 800px) {
+  #busca-filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #campobusca, #filtro, #btn-buscar {
+    width: 100%;
+  }
+}
+
+
+/* ======== ESTILO PERSONALIZADO DO FILTRO ======== */
+
+
+#filtro:hover {
+  box-shadow: 0 0 8px rgba(19,77,206,.3);
+}
+
+#filtro:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(19,77,206,.4);
+}
+
+/* Estiliza as opções internas */
+#filtro option {
+  background-color: #fff;
+  color: #061e6d;
+  padding: 10px;
+}
+
+/* Quando o usuário passa o mouse nas opções */
+#filtro option:hover {
+  background-color: #e6f0ff; /* azul clarinho */
+}
+
+/* Quando uma opção está selecionada */
+#filtro option:checked {
+  background-color: #d0e7ff;
+  color: #000;
+  font-weight: 600;
+}

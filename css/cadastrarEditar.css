@@ -1,0 +1,127 @@
+/* ==============
+   Paleta global
+=============== */
+:root {
+  --azul-prim: #134DCE;
+  --azul-esc: #092768;
+  --azul-brand: #0095DF;
+  --verm-1: #B40606;
+  --verm-2: #890505;
+  --cinza-fundo: #f2f2f2;
+  --cinza-borda: #d0d0d0;
+  --texto: #333;
+}
+
+/* ============
+   Estrutura
+============= */
+body {
+  background: var(--cinza-fundo);
+  font-family: "Segoe UI", Poppins, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.editar-container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  max-width: 640px;
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 24px;
+  color: var(--azul-esc);
+  text-align: center;
+}
+
+/* ============
+   Campos
+============= */
+#form-editar label {
+  font-weight: 600;
+  color: var(--texto);
+  margin-top: 10px;
+}
+
+#form-editar input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #fff;
+  font-size: 15px;
+  color: var(--texto);
+  transition: all .25s ease;
+  background-image:
+    linear-gradient(#fff,#fff),
+    linear-gradient(90deg, #1c85fe, #2d9dae, #0095DF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 6px rgba(19,77,206,.18);
+  margin-bottom: 14px;
+}
+
+/* Foco moderno */
+#form-editar input:focus {
+  outline: none;
+  box-shadow:
+    0 0 6px rgba(19, 77, 206, 0.25),
+    0 0 14px rgba(0, 149, 223, 0.25),
+    inset 0 0 4px rgba(19, 77, 206, 0.15);
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(90deg, #1c85fe, #2d9dae, #0095DF);
+  transform: translateY(-1px);
+}
+
+/* ============
+   Botões
+============= */
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+button,
+a.btn-cancelar {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: all .22s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  text-align: center;
+  text-decoration: none;
+}
+
+button:hover,
+a.btn-cancelar:hover {
+  transform: scale(1.03);
+  filter: brightness(1.07);
+}
+
+button:active,
+a.btn-cancelar:active {
+  transform: scale(0.97);
+  filter: brightness(0.9);
+}
+
+/* Botão Salvar */
+.btn-salvar {
+  background: linear-gradient(90deg, var(--azul-prim), var(--azul-esc));
+}
+
+/* Botão Cancelar */
+.btn-cancelar {
+  background: linear-gradient(90deg, var(--verm-1), var(--verm-2));
+}

@@ -1,0 +1,483 @@
+/* ===== Paleta e utilidades ===== */
+:root {
+  --azul-prim:#134DCE;
+  --azul-esc:#092768;
+  --azul-brand:#0095DF;
+
+  --laranja-1:#FF9838;
+  --laranja-2:#C96514;
+
+  --verm-1:#B40606;
+  --verm-2:#890505;
+
+  --verd-1:#7ED957;
+  --verd-2:#2EB872;
+
+  --cinza-borda:#d0d0d0;
+  --cinza-fundo:#f2f2f2;
+}
+
+/* ==================== BASE ==================== */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  color: #111;
+  background-color: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* container da página */
+#cadastro-importar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px;
+  color: #111;
+}
+
+/* ========= TOPO (form + upload) ========= */
+/* layout idêntico ao print 2: form e upload lado a lado */
+#topo {
+  display: flex;
+  justify-content: space-between; /* separa as duas colunas */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* ----- Formulário à esquerda ----- */
+#form-aluno {
+  flex: 1 1 620px;   /* largura principal */
+  max-width: 700px;  /* impede esticar demais */
+  min-width: 520px;  /* mantém boa responsividade */
+}
+
+/* ---------- Inputs (textfields) ---------- */
+#form-aluno input[type="text"],
+#form-aluno input[type="email"],
+#form-aluno input[type="password"],
+#form-aluno input[type="url"],
+#form-aluno input[type="tel"],
+#form-aluno select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  outline: none;
+  background: #fff;
+  font-size: 15px;
+  color: #333;
+  transition: all .25s ease;
+  box-sizing: border-box;
+
+  /* borda gradiente (azuis) */
+  background-image:
+    linear-gradient(#fff,#fff),
+    linear-gradient(90deg,#1c85fe,#2d9dae,#0095DF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 6px rgba(19,77,206,.18);
+}
+
+/* Efeito moderno de foco */
+#form-aluno input:focus,
+#form-aluno select:focus {
+  outline: none;
+  box-shadow:
+    0 0 6px rgba(19, 77, 206, 0.25),
+    0 0 14px rgba(0, 149, 223, 0.25),
+    inset 0 0 4px rgba(19, 77, 206, 0.15);
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(90deg, #1c85fe, #2d9dae, #0095DF);
+  transform: translateY(-1px);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* blocos do formulário */
+#form-aluno .campo {
+  margin-top: 10px;
+}
+
+#acoes-form {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ----- Upload à direita ----- */
+#upload-planilha {
+  flex: 0 0 320px;
+  max-width: 340px;
+  min-width: 280px;
+  
+}
+
+
+
+/* ====== DROPZONE (upload da planilha) ====== */
+#dropzone {
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  background: #fff;
+  transition: all 0.25s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+#dropzone.dragover {
+  border-color: #1da851;
+  background: #f0fff5;
+}
+
+/* estado quando arquivo já foi selecionado */
+#dropzone.uploaded {
+  border-color: #2eb872;
+  background: linear-gradient(to bottom right, #e5ffe9, #d8ffdf);
+  color: #176b36;
+  font-weight: 600;
+}
+
+/* ícone de sucesso */
+#dropzone.uploaded::after {
+  content: "✔ Arquivo carregado!";
+  display: block;
+  color: #1da851;
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* animação suave do texto */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#btn-upload-planilha {
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #1da851, #12833a);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+/* ====== BOTÕES ====== */
+button {
+  border: none;
+  color: #fff;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px !important;
+  min-height: 38px !important;
+  transition: all .22s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+button:hover {
+  transform: scale(1.03);
+  filter: brightness(1.07);
+}
+
+button:active {
+  transform: scale(0.97);
+  filter: brightness(0.9);
+}
+
+/* ícones dentro dos botões menores também */
+button .icon {
+  width: 16px !important;
+  height: 16px !important;
+  display: inline-block;
+  object-fit: contain;
+}
+
+#btn-cadastrar {
+  background: linear-gradient(90deg, var(--azul-prim), var(--azul-esc));
+}
+
+#btn-editar {
+  background: linear-gradient(90deg, var(--laranja-1), var(--laranja-2));
+}
+
+.btn-deletar {
+  background: linear-gradient(90deg, var(--verm-1), var(--verm-2));
+}
+
+#btn-buscar {
+  background: linear-gradient(90deg, var(--verd-1), var(--verd-2));
+  color: #ffffff;
+}
+
+#filtro {
+  width: 220px;            /* controla o tamanho horizontal */
+  padding: 10px 12px;      /* deixa o interior proporcional aos outros inputs */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #fff;
+  font-size: 15px;
+  color: #333;
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(90deg, #1c85fe, #2d9dae, #0095DF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 6px rgba(19,77,206,.18);
+}
+
+
+/* ========= BUSCA / FILTROS ========= */
+#busca-filtros {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#campobusca {
+  flex: 1 1 420px;
+  min-width: 300px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: #fff;
+  font-size: 15px;
+  color: #333;
+  transition: all .25s ease;
+  background-image:
+    linear-gradient(#fff,#fff),
+    linear-gradient(90deg,#1c85fe,#2d9dae,#0095DF);
+  background-origin: border-box;
+  background-clip: padding-box,border-box;
+  box-shadow: 0 0 6px rgba(19,77,206,.18);
+}
+
+
+
+
+
+#campobusca:focus {
+  outline: none;
+  box-shadow:
+    0 0 6px rgba(19, 77, 206, 0.25),
+    0 0 14px rgba(0, 149, 223, 0.25),
+    inset 0 0 4px rgba(19, 77, 206, 0.15);
+  transform: translateY(-1px);
+}
+
+/* ========= TABELA ========= */
+.tabela-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#tabela-alunos {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e6ebf5;
+}
+
+/* cabeçalho com gradiente azul */
+#tabela-alunos thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #0095DF;
+  color: #fff;
+  text-align: left;
+  font-weight: 700;
+  padding: 12px 14px;
+  border-bottom: 2px solid #001743;
+}
+
+/* células e linhas */
+#tabela-alunos td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #edf2fb;
+  color: #222;
+}
+
+/* ↓ ajusta largura da coluna de e-mail (3ª coluna) */
+#tabela-alunos th:nth-child(3),
+#tabela-alunos td:nth-child(3) {
+  width: 210px; /* era ~220px → reduzido em 10px */
+  word-break: break-all; /* quebra e-mails longos */
+}
+
+
+
+
+/* linhas alternadas e hover */
+#tabela-alunos tbody tr:nth-child(even) {
+  background: #f9fbff;
+}
+
+#tabela-alunos tbody tr:hover {
+  background: #eef4ff;
+}
+
+/* botão Deletar dentro da tabela */
+#tabela-alunos .btn-deletar {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  min-height: 40px;
+}
+
+/* ========= RESPONSIVIDADE ========= */
+@media (max-width: 900px) {
+  #topo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #form-aluno,
+  #upload-planilha {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #acoes-form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* ==================== ALERTAS ==================== */
+.alerta-sucesso {
+  background: linear-gradient(to right, #a5d6a7, #66bb6a);
+  color: #0b3d0b;
+  border: 1px solid #388e3c;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(56, 142, 60, 0.2);
+  margin-bottom: 16px;
+}
+
+.alerta-erro {
+  background: linear-gradient(to right, #ef9a9a, #e57373);
+  color: #5d0000;
+  border: 1px solid #c62828;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(198, 40, 40, 0.25);
+  margin-bottom: 16px;
+}
+
+
+
+/* ===== MODAL POPUP ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: linear-gradient(to bottom right, #ffffff, #f6fff8);
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  padding: 24px 30px;
+  width: 400px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #2e7d32;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="tel"],
+.modal-content input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.btn-salvar {
+  background: linear-gradient(to right, #66bb6a, #2e7d32);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background: linear-gradient(to right, #e57373, #f44336);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+
+
+
+#filtro:hover {
+  box-shadow: 0 0 8px rgba(19,77,206,.3);
+}
+
+#filtro:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(19,77,206,.4);
+}
+
+/* Estiliza as opções internas */
+#filtro option {
+  background-color: #fff;
+  color: #061e6d;
+  padding: 10px;
+}
+
+/* Quando o usuário passa o mouse nas opções */
+#filtro option:hover {
+  background-color: #e6f0ff; /* azul clarinho */
+}
+
+/* Quando uma opção está selecionada */
+#filtro option:checked {
+  background-color: #d0e7ff;
+  color: #000;
+  font-weight: 600;
+}

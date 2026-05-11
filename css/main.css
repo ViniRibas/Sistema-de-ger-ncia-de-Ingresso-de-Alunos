@@ -1,0 +1,198 @@
+/* ===== Fundo base ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    height: 100vh;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ===== Header (fundo azul padrão) ===== */
+header {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #0095DF;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #fffefe;
+}
+
+/* ===== Botão do menu (☰) ===== */
+.menu-btn {
+    position: absolute;
+    left: 16px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ===== Sidebar (mesma cor sólida do header) ===== */
+.sidebar {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    width: 260px;
+    height: calc(100vh - 52px);
+    background-color: #0095DF;
+    transition: transform 0.4s ease;
+    overflow: hidden;
+    z-index: 5;
+}
+
+/* Recolher completamente */
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* ===== Botões do menu ===== */
+.sidebar ul {
+    list-style: none;
+    padding: 20px 12px;
+    margin: 0;
+}
+
+.sidebar li {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Ícone + texto alinhados à esquerda */
+    flex-direction: row;
+    gap: 10px;
+    color: #000;
+    font-weight: 500;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Ícones ajustados visualmente ===== */
+.sidebar li img {
+    width: 18px;               /* tamanho equilibrado */
+    height: 18px;
+    filter: brightness(0);     /* mantém ícone preto */
+    flex-shrink: 0;
+    margin-right: 8px;         /* espaço entre ícone e texto */
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* ===== Texto do botão (span) ===== */
+.sidebar li span {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+/* ===== Interações ===== */
+.sidebar li:hover {
+    transform: scale(1.05);
+    background-color: #f3f3f3;
+}
+
+.sidebar li:active {
+    transform: scale(0.97);
+    background-color: #e6e6e6;
+}
+
+/* ===== Botão ativo (selecionado) ===== */
+.sidebar li.active {
+    background-color: #e8f6ff; /* leve azul de destaque */
+    box-shadow: 0 0 8px 2px rgba(0, 149, 223, 0.6),
+                0 0 15px 5px rgba(0, 149, 223, 0.3);
+    border: 1px solid rgba(0, 149, 223, 0.5);
+}
+
+/* ===== Área principal ===== */
+main {
+    margin-left: 260px;
+    height: calc(100vh - 52px);
+    transition: margin-left 0.4s ease;
+}
+
+/* Expande ao esconder o menu */
+main.expandido {
+    margin-left: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 850px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        top: 52px;
+        width: 240px;
+    }
+
+    .sidebar.hidden {
+        transform: translateX(-100%);
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .sidebar li img {
+        width: 16px; /* menor em telas pequenas */
+        height: 16px;
+    }
+
+    .sidebar li span {
+        font-size: 14px;
+    }
+}
+
+
+
+/* ===== Botão DESLOGAR (com classe) ===== */
+.logout-btn {
+    background-color: #f1d0d0 !important;
+    color: #000000 !important;
+    border: 1px solid #f1d0d0 !important;
+}
+
+.logout-btn span {
+    color: #000000 !important;
+}
+
+.logout-btn img {
+    filter: brightness(1) !important;
+}
+
+.logout-btn:hover {
+    background-color: #ff6666 !important;
+    transform: scale(1.05);
+}
+
+.logout-btn.active {
+    background-color: #dd9797 !important;
+    box-shadow: 0 0 10px rgba(255, 50, 50, 0.6) !important;
+    border: 1px solid #b00000 !important;
+}
+

@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+h1 {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+
+select, input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ================== BOTÕES GRADIENTES ================== */
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+}
+
+/* Botão principal (Enviar comunicado) */
+button[type="submit"] {
+    background: linear-gradient(90deg, #134DCE, #092768); /* Laranja gradiente */
+}
+
+/* Hover */
+button[type="submit"]:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Botão Exportar (verde gradiente) */
+.exportar {
+    background: linear-gradient(90deg, #7ED957, #2EB872);
+    margin-left: 10px;
+}
+
+/* Hover verde */
+.exportar:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+

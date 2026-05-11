@@ -1,0 +1,227 @@
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* ================= VARIÁVEIS DE COR ================= */
+:root {
+    --preto:#000;
+    --azul-prim: #134DCE;
+    --azul-esc: #092768;
+    --azul-brand: #0095DF;
+
+
+    --verd-1: #7ED957;
+    --verd-2: #2EB872;
+
+    --cinza-borda: #d0d0d0;
+    --cinza-fundo: #f2f2f2;
+}
+
+/* ================= CONTEÚDO PRINCIPAL ================= */
+
+#conteudo-principal {
+    width: 100%;
+    padding: 15px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+/* ================= TÍTULO ================= */
+#conteudo-principal h1 {
+    color: var(--preto);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* ================= PAINÉIS ================= */
+.painel-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.painel {
+    flex: 1 1 200px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+    text-align: center;
+    min-height: 100px;
+}
+
+.painel h2 {
+    font-size: 28px;
+    color: var(--azul-brand);
+    margin-bottom: 10px;
+}
+
+.painel p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ================= FORMULÁRIOS ================= */
+#conteudo-principal form {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Input de pesquisa */
+#conteudo-principal input[type="text"] {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    font-size: 15px;
+    transition: all .25s ease;
+    background-image:
+        linear-gradient(#fff, #fff),
+        linear-gradient(90deg, #1c85fe, #2d9dae, #0095DF);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 0 6px rgba(19,77,206,.18);
+}
+
+/* Foco do input */
+#conteudo-principal input[type="text"]:focus {
+    outline: none;
+    box-shadow:
+        0 0 6px rgba(19, 77, 206, 0.25),
+        0 0 14px rgba(0, 149, 223, 0.25),
+        inset 0 0 4px rgba(19, 77, 206, 0.15);
+}
+
+/* ================= BOTÕES ================= */
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+}
+
+/* Ícones dentro do botão */
+.icon-btn {
+    width: 18px;
+    height: 18px;
+}
+
+/* Laranja gradiente (Buscar) */
+.btn-buscar {
+    background: linear-gradient(90deg, var(--verd-1), var(--verd-2));
+}
+
+.btn-buscar:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Verde gradiente (Excel) */
+.btn-excel {
+    background: linear-gradient(90deg, var(--azul-prim), var(--azul-esc));
+}
+.btn-excel:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.btn-filtro{
+    background:linear-gradient(90deg,#00B2FF,#0078C2);
+}
+
+/* ================= TABELA ================= */
+.tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .1);
+}
+
+/* Cabeçalho azul gradiente */
+thead th {
+    background: linear-gradient(90deg, var(--azul-prim), var(--azul-brand));
+    color: #fff;
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    border-bottom: 2px solid var(--azul-esc);
+}
+
+/* Linhas e células */
+tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf2fb;
+    color: #222;
+}
+
+/* Linhas alternadas */
+tbody tr:nth-child(even) {
+    background: linear-gradient(0deg, #f9fbff, #f4f7ff);
+}
+
+/* Hover */
+tbody tr:hover {
+    background-color: #eef4ff;
+    transition: 0.2s;
+}
+
+/* Links (documentos) */
+table a {
+    color: var(--azul-prim);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Coluna Situação com destaque */
+td span[style*="green"] {
+    color: #28a745 !important;
+    font-weight: bold;
+}
+td span[style*="red"] {
+    color: #dc3545 !important;
+    font-weight: bold;
+}
+td span[style*="gray"] {
+    color: #777 !important;
+}
+/* ===== Ajuste automático de margem ===== 
+body:not(:has(#menu-lateral)) #conteudo-principal {
+    margin-left: 250px; // mesma largura do menu
+}
+*/
+
